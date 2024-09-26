@@ -18,9 +18,8 @@ export default {
       picked,
       uploadFromText:'Upload From',
       uploadToText:'Upload To',
-      uploadFrom:new Date(),
-      uploadTo:new Date()
-      
+      uploadFrom:null,
+      uploadTo: null, 
     }
   },
   watch: {
