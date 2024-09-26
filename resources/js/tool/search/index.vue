@@ -11,7 +11,6 @@
         @input="$parent.doSearch()"
       />
     </div>
-    <span class="mr-2">From</span>
     <datepicker
       class="form-control shadow-md max-w-full mr-4 text-center form-input dark:nml-bg-gray-800"
       :placeholder="uploadFromText"
@@ -23,7 +22,6 @@
     />
 
     <span class="nml-mx-4"></span>
-    <span class="mr-2">To</span>
     <datepicker
       class="form-control shadow-md max-w-full text-center form-input dark:nml-bg-gray-800"
       :placeholder="uploadToText"
