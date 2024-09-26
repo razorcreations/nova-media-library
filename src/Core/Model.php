@@ -78,16 +78,16 @@ class Model extends \Illuminate\Database\Eloquent\Model
                     $query->whereIn('type', $param['type']);
                 }
             })
-            ->where(function ($query) use ($param) {
-                if ($param['from']) {
-                    $query->where('created', '>=', $param['from'] . ' 00:00:00');
-                }
-            })
-            ->where(function ($query) use ($param) {
-                if ($param['to']) {
-                    $query->where('created', '<=', $param['to'] . ' 23:59:59');
-                }
-            })
+            // ->where(function ($query) use ($param) {
+            //     if ($param['from']) {
+            //         $query->where('created', '>=', $param['from'] . ' 00:00:00');
+            //     }
+            // })
+            // ->where(function ($query) use ($param) {
+            //     if ($param['to']) {
+            //         $query->where('created', '<=', $param['to'] . ' 23:59:59');
+            //     }
+            // })
             ->where(function ($query) use ($title) {
                 if ($title) {
                     $query->where('title', 'LIKE', "%{$title}%");
