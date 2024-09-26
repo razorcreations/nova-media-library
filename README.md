@@ -37,8 +37,8 @@ After upgrading to version 1.x, you need to remove the old table from the databa
 
 ### Requirements
 
-- Laravel 5.8+
-- Nova 2
+- Laravel 10
+- Nova 4
 - [intervention/image](http://image.intervention.io) package for image resizing (optional)
 
 ### Install

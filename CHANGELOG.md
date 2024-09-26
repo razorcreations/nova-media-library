@@ -1,5 +1,12 @@
 ## Changelog
 
+### [2.0.0] - 2024-09-26
+
+- Nova 4 Support
+- Dark Mode Added
+- Tailwind Added with prefix of nml
+
+
 ### [1.0.8] - 2021-10-23
 #### Fixed
 - stream file while uploading fixes

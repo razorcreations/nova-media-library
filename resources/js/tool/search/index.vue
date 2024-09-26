@@ -1,35 +1,37 @@
 <template>
-  <div class="flex flex-wrap mb-6 select-none">
+  <div class="flex flex-wrap mb-6 select-none items-center">
 
-    <div class="relative mr-4 max-w-full">
-      <icon type="search" class="absolute search-icon-center ml-3 text-70" />
+    <div class="relative mr-4 flex items-center justify-center max-w-full">
+      <icon type="search" class="absolute left-0 search-icon-center mr-3 mt-1.5 text-70 ml-2" />
       <input
-        class="form-control form-input w-search pl-search shadow-md w-full"
+        class="form-control form-input w-search pl-search shadow-md w-full pl-10 dark:nml-bg-gray-800"
         type="search"
         :placeholder="__('Search by name')"
         v-model="$parent.filter.title"
         @input="$parent.doSearch()"
       />
     </div>
-
-    <date-time-picker
-      class="form-control form-input shadow-md max-w-full mr-4"
-      autocomplete="off"
-      :placeholder="__('Upload From')"
-      dateFormat="Y-m-d"
-      :firstDayOfWeek="1"
-      :enable-time="false"
-      @change="val => updateDate(val, 'from')"
+    <span class="mr-2">From</span>
+    <datepicker
+      class="form-control shadow-md max-w-full mr-4 text-center form-input dark:nml-bg-gray-800"
+      :placeholder="uploadFromText"
+      ref="uploadFrom"
+      v-model="uploadFrom"
+      inputFormat= "yyyy-MM-dd"
+      :weekStartsOn= "1"
+      @change="updateDate(this.$refs.uploadFrom.input, 'from')"
     />
 
-    <date-time-picker
-      class="form-control form-input shadow-md max-w-full"
-      autocomplete="off"
-      :placeholder="__('Upload To')"
-      dateFormat="Y-m-d"
-      :firstDayOfWeek="1"
-      :enable-time="false"
-      @change="val => updateDate(val, 'to')"
+    <span class="nml-mx-4"></span>
+    <span class="mr-2">To</span>
+    <datepicker
+      class="form-control shadow-md max-w-full text-center form-input dark:nml-bg-gray-800"
+      :placeholder="uploadToText"
+      ref="uploadTo"
+      v-model="uploadTo"
+      inputFormat= "yyyy-MM-dd"
+      :weekStartsOn= "1"
+      @change="updateDate(this.$refs.uploadTo.input, 'to')"
     />
 
     <div :title="__('Change Display Type')" class="nml-display bg-white shadow-md rounded-lg cursor-pointer ml-auto mr-4 active:shadow-outline">
@@ -41,7 +43,7 @@
       </svg>
     </div>
 
-    <select class="shadow-md block border-0 cursor-pointer form-control form-select"
+    <select class="shadow-md block border-0 cursor-pointer form-control form-select nml-min-w-36 nml-px-4 dark:nml-bg-gray-800"
             v-if="types.length > 1"
             v-model="$parent.filter.type"
             @change="$parent.doSearch()">
